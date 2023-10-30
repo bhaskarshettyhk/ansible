@@ -1,0 +1,28 @@
+---
+- name: copyplaybook
+  hosts: all
+  tasks:
+    - name: copy_file
+      copy:
+        src: /root/multiplication.sh
+        dest: /root    
+    - name: packaging_module
+      apt:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - git
+        - wget
+        - maven
+        - default-jre
+    - name: shell_commands
+      shell: ls /root
+      register: target_ls
+      shell: cat multiplication.sh
+      register: target_cat
+      shell: sh /root/multiplication.sh
+      register: target_sh  
+    - debug:
+        var: target_ls.stdout_lines
+        var: target_cat.stdout_lines
+        var: target_sh.stdout_lines

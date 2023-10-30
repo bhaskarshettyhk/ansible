@@ -1,0 +1,26 @@
+---
+- name: copyplaybook
+  hosts: all
+  tasks:
+    - name: copy_file
+      copy:
+        src: /root/456
+        dest: /home/ubuntu
+    - name: packaging_module
+      apt: 
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - wget
+        - maven 
+    - name: file_permission
+      file:
+        path: /root/123
+        mode: 0444
+        owner: ubuntu
+        group: ubuntu
+    - name: shell_commands
+      shell: ls
+      register: target_ls
+    - debug: 
+        var: target_ls.stdout_lines
