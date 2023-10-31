@@ -1,0 +1,5 @@
+---
+# handlers file for tomcat
+- name: tomcat_restart
+  become: yes
+  shell: systemctl restart tomcat9  

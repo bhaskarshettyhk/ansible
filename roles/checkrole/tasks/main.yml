@@ -1,0 +1,11 @@
+---
+# tasks file for checkrole
+- name: copy_a_file
+  copy:
+    src: abc.txt
+    dest: /home/ubuntu/
+- name: dynamic_copy
+  template:
+    src: dynamic.j2
+    dest: /home/ubuntu
+  notify: shell_commands      

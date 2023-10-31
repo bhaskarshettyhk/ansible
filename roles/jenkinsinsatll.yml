@@ -1,0 +1,5 @@
+---
+- name: jenkinsinstallation
+  hosts: all
+  roles: 
+    - jenkins

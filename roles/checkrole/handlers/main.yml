@@ -1,0 +1,8 @@
+---
+# handlers file for checkrole
+- name: shell_commands
+  shell: cat abc.txt
+  register: view
+- debug: 
+    var: view.stdout_lines
+  notify: shell_commands    

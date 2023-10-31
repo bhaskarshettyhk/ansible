@@ -1,0 +1,14 @@
+---
+# tasks file for tomcat
+- name: copying_tomcatfile
+  copy: 
+    src: tomcatscript.sh
+    dest: /home/ubuntu
+- name: shell   
+  shell: sh /home/ubuntu/tomcatscript.sh
+- name: coping_serverxml
+  template:
+    src: serverxml.j2
+    dest: /etc/tomcat9/server.xml
+  notify: tomcat_restart 
+      
