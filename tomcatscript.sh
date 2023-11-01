@@ -15,4 +15,6 @@ sudo ufw allow from any to any port 9090 proto tcp
 sudo sed -i '56 i <role rolename="admin-gui"/>' /etc/tomcat9/tomcat-users.xml
 sudo sed -i '57 i <role rolename="manager-gui"/>' /etc/tomcat9/tomcat-users.xml
 sudo sed -i '58 i <user username="tomcat" password="pass" roles="admin-gui,manager-gui"/>' /etc/tomcat9/tomcat-users.xml
-
+sudo systemctl restart tomcat9
+#sudo systemctl restart tomcat9
+sudo systemctl status tomcat9
